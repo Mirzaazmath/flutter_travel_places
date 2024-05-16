@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:travel_place/data.dart';
 
+import 'detail_screen.dart';
+
 class ParallexWidget extends StatefulWidget {
   const ParallexWidget({super.key});
 
@@ -65,16 +67,24 @@ class _ParallexWidgetState extends State<ParallexWidget> {
                 children: [
                   ClipRRect(
                       borderRadius: BorderRadius.circular(30),
-                      child: SizedBox(
-                        height: 300,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailScreen(data:travelPlaceList[index])));
+                        },
+                        child: Hero(
+                          tag:travelPlaceList[index].imageUrl,
+                          child: SizedBox(
+                            height: 300,
 
-                        /// TWO THINGS TO UNDER WHILE USING CREATING THE PARALLAX EFFECT
-                        /// 1. MAKE SURE TO ADD Alignment AND PASS THE OFFSET VALUE
-                        /// 2. MAKE SURE TO USE BoxFit.cover, ONLY
-                        child: Image.asset(
-                          travelPlaceList[index].imageUrl,
-                          fit: BoxFit.cover,
-                          alignment: Alignment(-pageOffSet.abs() + index, 0),
+                            /// TWO THINGS TO UNDER WHILE USING CREATING THE PARALLAX EFFECT
+                            /// 1. MAKE SURE TO ADD Alignment AND PASS THE OFFSET VALUE
+                            /// 2. MAKE SURE TO USE BoxFit.cover, ONLY
+                            child: Image.asset(
+                              travelPlaceList[index].imageUrl,
+                              fit: BoxFit.cover,
+                              alignment: Alignment(-pageOffSet.abs() + index, 0),
+                            ),
+                          ),
                         ),
                       )),
 

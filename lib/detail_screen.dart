@@ -18,7 +18,66 @@ class DetailScreen extends StatelessWidget {
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
       ),
-      body: Padding(
+      bottomNavigationBar: Container(
+       height: 90,
+       padding: const EdgeInsets.all(10),
+       decoration:  BoxDecoration(
+         color: Colors.grey.shade200,
+         borderRadius:const  BorderRadius.vertical(top: Radius.circular(30))
+       ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          Column(
+            children: [
+              Text(
+              "Just Check-in",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+              CircleAvatar(
+                backgroundColor: Colors.grey.shade400,
+                child:   Text(
+                  "7+",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
+            Container(
+              height: 60,
+              width: 170,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: const Color(0xfff9c42a),
+                  boxShadow: [
+                    BoxShadow(
+                        color: const Color(0xfff9c42a).withOpacity(0.5),
+                        blurRadius: 20,
+                        offset: const Offset(5,5)
+                    )
+                  ]
+              ),
+              alignment: Alignment.center,
+              child:Text(
+                "Select dates",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+
+            )
+          ],
+        ),
+
+      ),
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,6 +163,28 @@ class DetailScreen extends StatelessWidget {
                   .textTheme
                   .headlineLarge
                   ?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+
+              children: [
+                Chip(
+                  backgroundColor: Colors.grey.shade200,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    label: const Text("Travelling")),
+              const   SizedBox(width: 10,),
+                Chip(
+                    backgroundColor: Colors.grey.shade200,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    label:const  Text("History")),
+                const   SizedBox(width: 10,),
+                Chip(
+                    backgroundColor: Colors.grey.shade200,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    label:const  Text("Vibe"))
+              ],
             ),
             const SizedBox(
               height: 20,
